@@ -1,7 +1,9 @@
-package model;
+package com.example.BD203454.model;
 
 
 import javax.persistence.*;
+
+
 
 @Entity
 @Table(name = "mascota")

@@ -1,6 +1,6 @@
-package controller;
+package com.example.BD203454.controller;
 
-import model.Mascota;
+import com.example.BD203454.model.Mascota;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package repository;
 
-import model.Mascota;
+import com.example.BD203454.model.Mascota;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -65,6 +65,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 >>>>>>> origin/Leo
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.BD203454" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
