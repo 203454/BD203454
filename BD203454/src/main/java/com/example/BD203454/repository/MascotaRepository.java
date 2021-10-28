@@ -1,4 +1,4 @@
-package repository;
+package com.example.BD203454.repository;
 
 import com.example.BD203454.model.Mascota;
 import org.springframework.data.repository.CrudRepository;
