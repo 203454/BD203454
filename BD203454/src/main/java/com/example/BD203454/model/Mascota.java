@@ -1,6 +1,8 @@
 package com.example.BD203454.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 
@@ -24,16 +26,23 @@ public class Mascota {
     @Column (name="fechaIngreso")
     private String fechaIngreso;
 
+    @JsonBackReference
+    @ManyToOne (fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "id_duenio", nullable = false)
+    private  Duenio duenio;
+
+
     public Mascota(){
 
     }
 
-    public Mascota(int mascotaId, String nombre, String tipo, String motivoIngreso, String fechaIngreso){
+    public Mascota(int mascotaId, String nombre, String tipo, String motivoIngreso, String fechaIngreso,Duenio duenio ){
         this.mascotaId=mascotaId;
         this.nombre=nombre;
         this.tipo=tipo;
         this.motivoIngreso=motivoIngreso;
         this.fechaIngreso=fechaIngreso;
+        this.duenio=duenio;
     }
 
     public int getMascotaId() {
@@ -74,5 +83,13 @@ public class Mascota {
 
     public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
+    }
+
+    public Duenio getDuenio() {
+        return duenio;
+    }
+
+    public void setDuenio(Duenio duenio) {
+        this.duenio = duenio;
     }
 }
