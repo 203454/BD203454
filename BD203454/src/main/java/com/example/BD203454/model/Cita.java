@@ -13,8 +13,8 @@ public class Cita {
     @Column(name="id_cita")
     private int idCita;
 
-    @Column(name="Id_mascote")
-    private String idHora;
+    @Column(name="mascotaId")
+    private int mascotaId;
 
     @Column(name="Hora")
     private String hora;
@@ -26,9 +26,9 @@ public class Cita {
     private String tipoDeServicio;
 
 
-    public Cita(int idCita, String idHora, String hora, String fecha, String tipoDeServicio) {
+    public Cita(int idCita, int mascotaId, String hora, String fecha, String tipoDeServicio) {
         this.idCita = idCita;
-        this.idHora = idHora;
+        this.mascotaId = mascotaId;
         this.hora = hora;
         this.fecha = fecha;
         this.tipoDeServicio = tipoDeServicio;
@@ -44,12 +44,12 @@ public class Cita {
         this.idCita = idCita;
     }
 
-    public String getIdHora() {
-        return idHora;
+    public int getMascotaId() {
+        return mascotaId;
     }
 
-    public void setIdHora(String idHora) {
-        this.idHora = idHora;
+    public void setMascotaId(int mascotaId) {
+        this.mascotaId = mascotaId;
     }
 
     public String getHora() {

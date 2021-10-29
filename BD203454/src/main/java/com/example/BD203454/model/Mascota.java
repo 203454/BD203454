@@ -20,7 +20,7 @@ public class Mascota {
     @Column (name = "tipo")
     private String tipo;
 
-    @Column (name = "motivoIngreo")
+    @Column (name = "motivoIngreso")
     private String motivoIngreso;
 
     @Column (name="fechaIngreso")
