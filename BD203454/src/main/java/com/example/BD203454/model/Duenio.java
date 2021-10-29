@@ -41,11 +41,11 @@ public class Duenio {
 
     public double getTelefono() { return telefono; }
 
-    public void setTelefono(double telefono) { this.telefono = telefono; }
+    public void setTelefono(int telefono) { this.telefono = telefono; }
 
-    public int getDireccion() { return direccion; }
+    public String getDireccion() { return direccion; }
 
-    public void setDireccion(int direccion) { this.direccion = direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
 
     public Set<Mascota> getMascotas() { return mascotas; }
 
