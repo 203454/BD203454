@@ -20,7 +20,6 @@ public class DuenioController {
 
     @GetMapping(value = "/listaDuenios")
     public List<Duenio> getListDuenio(){
-
         return duenioRepository.findAll();
     }
 
