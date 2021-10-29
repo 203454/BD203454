@@ -18,10 +18,10 @@ public class Duenio {
     private String nombre;
 
     @Column(name = "telefono")
-    private double telefono;
+    private int telefono;
 
     @Column(name = "direccion")
-    private int direccion;
+    private String direccion;
 
     @JsonBackReference
     @OneToMany(mappedBy = "duenio", fetch = FetchType.LAZY, cascade = CascadeType.DETACH, orphanRemoval = false)
