@@ -1,6 +1,6 @@
-package com.example.BD203454.Repository;
+package com.example.BD203454.repository;
 
-import com.example.BD203454.Model.Medicamento;
+import com.example.BD203454.model.Medicamento;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
