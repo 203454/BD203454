@@ -5,9 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface MedicamentoRepository extends CrudRepository<Medicamento, String >{
+public interface MedicamentoRepository extends CrudRepository<Medicamento, String>{
 
     List<Medicamento> findAll();
-
     Medicamento save(Medicamento medicamento);
 }
