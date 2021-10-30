@@ -11,3 +11,4 @@ INSERT INTO Mascota (nombre,tipo,fechaIngreso,motivoIngreso,id_duenio) values ('
 INSERT INTO Cita (fecha,hora,tipo_servicio) values ('28 de Octubre','12:00', 'banio');
 INSERT INTO Cita (fecha,hora,tipo_servicio) values ('noviembre sin ti','11:00', 'banio');
 INSERT INTO Cita (fecha,hora,tipo_servicio) values ('septiembre veviernes','12:00', 'banio');
+

@@ -12,3 +12,6 @@ INSERT INTO Cita (fecha,hora,tipo_servicio) values ('28 de Octubre','12:00', 'ba
 INSERT INTO Cita (fecha,hora,tipo_servicio) values ('noviembre sin ti','11:00', 'banio');
 INSERT INTO Cita (fecha,hora,tipo_servicio) values ('septiembre veviernes','12:00', 'banio');
 
+INSERT INTO Medicamento (nombre,fecha_caducidad,sustancia_activa) values ('paracetamol','12 de agosto 2021', 'cloro');
+INSERT INTO Medicamento (nombre,fecha_caducidad,sustancia_activa) values ('clonacepan','12 de agosto 2022', 'radio');
+INSERT INTO Medicamento (nombre,fecha_caducidad,sustancia_activa) values ('vaporup','12 de junio 2023', 'plomo');
