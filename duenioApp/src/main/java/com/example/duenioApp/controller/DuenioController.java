@@ -63,7 +63,7 @@ public class DuenioController {
     }
 
     //Agregar
-    @PostMapping(value = "/Duenio/add")
+    @PostMapping(value = "/Duenio/agregar")
     public Duenio addDuenio(@RequestBody Duenio duenio){
         return duenioRepository.save(duenio);
     }
