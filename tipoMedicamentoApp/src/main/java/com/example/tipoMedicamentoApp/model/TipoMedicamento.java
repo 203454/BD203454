@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class TipoMedicamento {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tipoMedicamentoId;
 
     @Column(name = "nombre")
