@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.6</version>
+		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>BD203454</artifactId>
+	<artifactId>tipoMascotaApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BD203454</name>
-	<description>Demo project for Spring Boot</description>
+	<name>tipoMascotaApp</name>
+	<description>Aplicación para conexión de tipos de Mascotas</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -35,6 +35,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.3.1</version>
 		</dependency>
 	</dependencies>
 
