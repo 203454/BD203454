@@ -49,7 +49,7 @@ public class MedicamentoController {
     }
 
     //Agregar
-    @PostMapping(value = "/Mascota/add")
+    @PostMapping(value = "/Medicamento/add")
     public Medicamento addMascota(@RequestBody Medicamento medicamento){
         return medicamentoRepository.save(medicamento);
     }
