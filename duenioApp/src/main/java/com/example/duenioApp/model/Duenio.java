@@ -8,6 +8,7 @@ import javax.persistence.Id;
 public class Duenio {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int duenioId;
 
     @Column(name = "nombre")
