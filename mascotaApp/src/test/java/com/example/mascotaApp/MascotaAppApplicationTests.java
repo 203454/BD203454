@@ -1,10 +1,10 @@
-package com.example.BD203454;
+package com.example.mascotaApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Bd203454ApplicationTests {
+class MascotaAppApplicationTests {
 
 	@Test
 	void contextLoads() {
