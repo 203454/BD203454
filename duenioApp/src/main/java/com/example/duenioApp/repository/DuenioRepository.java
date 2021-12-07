@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface DuenioRepository extends CrudRepository<Duenio,String> {
+public interface DuenioRepository extends CrudRepository<Duenio,Integer> {
 
 
 
