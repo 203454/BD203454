@@ -1,13 +1,12 @@
 package com.example.mascotaApp.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Mascota {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mascotaId;
 
     @Column(name = "nombre")
