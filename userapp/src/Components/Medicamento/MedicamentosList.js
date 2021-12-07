@@ -2,22 +2,22 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import FormMedicamento from './FormMedicamento';
 
-const MedicamentoList = ({medicamento, medicamentos, setListUpdated}) =>{
+const MedicamentosList = ({medicamento, medicamentos, setListUpdated}) =>{
 
-    const handleDelete= id_medicamento =>{
+    const handleDelete= medicamentoId =>{
         const requestInit = {
             method: 'POST', 
         }
-        fetch('http://localhost:18086/medicamento/delete/' + id_medicamento, requestInit)
+        fetch('http://localhost:18083/Medicamento/delete/' + medicamentoId, requestInit)
         .then(res => res.text())
-        .then(res => console.log(res + id_medicamento))
+        .then(res => console.log(res + medicamentoId))
 
         setListUpdated(true)
         }
 
         const handleUpdate = id =>{
 
-            medicamento.id_medicamento = id;
+            medicamento.medicamentoId = id;
             
             const requestInit = {
                
@@ -28,8 +28,8 @@ const MedicamentoList = ({medicamento, medicamentos, setListUpdated}) =>{
                 },
                 body: JSON.stringify(medicamento)
             }
-            console.log("DUENIO: " + requestInit.body)
-            fetch('http://localhost:18086/medicamento/update/' + id, requestInit)
+            console.log("MECDICAMENTO: " + requestInit.body)
+            fetch('http://localhost:18083/Medicamento/update/' + id, requestInit)
             .then(res => res.text())
             .then(res => console.log("FETCH: " + res))
     
@@ -37,59 +37,60 @@ const MedicamentoList = ({medicamento, medicamentos, setListUpdated}) =>{
         }
 
      
-        const [medicamento, setMedicamentos] = useState([])
+        const [tipoMedicamentos, setTipoMedicamentos] = useState([])
 
  
       
       
         useEffect(() => {
-            const getMascotas = () => {
-              fetch('http://localhost:18086/listMedicamentos')
+            const getTipoMedicamentos = () => {
+              fetch('http://localhost:18084/listTiposMedicamentos')
               .then(res => res.json())
-              .then(res => setMedicamentos(res))
+              .then(res => setTipoMedicamentos(res))
             }
-            getMedicamentos();
+            getTipoMedicamentos();
             setListUpdated(false)
           },[])
         
         
 
     return(
-        <table className="table">
+        <table class="table table-bordered">
  
             <thead>
                 <tr>
-                    <th>ID MEDICAMENTO</th>
-                    <th>NOMBRE</th>
-                    <th>FECHA DE CADUCIDAD</th>
-                    <th>SUSTANCIA ACTIVA</th>
-                    <th>TIPO DE MEDICAMENTOS</th>
+                    <th  cope="col">ID </th>
+                    <th  cope="col">NAME</th>
+                    <th  cope="col">CADUCA</th>
+                    <th  cope="col">S.A</th>
+                    <th  cope="col">TIPO</th>
+                    <th  cope="col">INFO</th>
                 </tr>
             </thead>
             <tbody>
                     {medicamentos.map( medicamento => (
-                        <tr key={medicamento.id_medicamento}>
-                           <td>{medicamento.id_medicamento}</td>
+                        <tr cope="row" key={medicamento.medicamentoId}>
+                           <td>{medicamento.medicamentoId}</td>
                            <td>{medicamento.nombre}</td>
                            <td>{medicamento.fechaCaducidad}</td>
                            <td>{medicamento.sustanciaActiva}</td>
-                           <td>{medicamento.id_tipoMedicamentoId}</td>
+                           <td>{medicamento.tipoMedicamentoId}</td>
                             <td>{
                            
                             //producto.tipoId === duenio.id_duenio ? (
 
-                            tipoMedicamento.map(e =>(
+                            tipoMedicamentos.map(e =>(
 
-                                medicamento.id_medicamento=== e.id_medicamento ? (
+                                medicamento.tipoMedicamentoId === e.tipoMedicamentoId ? (
                                 
-                                <ol key={e.id_medicamento}>
-                                    <li>{e.id_tipoMedicamentoId}</li>
+                                <ol key={e.tipoMedicamentoId}>
+                                    <li>{e.tipoMedicamentoId}</li>
                                     <li>{e.nombre}</li>
                                     <li>{e.descripcion}</li>
                                 </ol>  
                                  )
                                 :(
-                            <td>Sin datos</td>
+                            <td></td>
                                 )
 
                              )
@@ -99,11 +100,11 @@ const MedicamentoList = ({medicamento, medicamentos, setListUpdated}) =>{
                            </td>                           
                            <td>
                                <div className="mb-3">
-                                <button onClick={() => handleDelete(medicamento.id_medicamento)} className="btn btn-danger">ELIMINAR</button>
+                                <button onClick={() => handleDelete(medicamento.medicamentoId)} className="btn btn-danger">ELIMINAR</button>
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(medicamento.id_medicamento)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(medicamento.medicamentoId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            
@@ -114,4 +115,4 @@ const MedicamentoList = ({medicamento, medicamentos, setListUpdated}) =>{
         </table>
         )
 }
-export default MedicamentoList;
+export default MedicamentosList;

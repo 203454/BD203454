@@ -1,6 +1,6 @@
 
 import React, {Fragment, useState, useEffect} from 'react';
-import FormTipoMascotafrom from './FormTipoMascotafrom';
+import FormTipoMascota from './FormTipoMascota';
 
 const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
 
@@ -17,7 +17,7 @@ const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
 
         const handleUpdate = id =>{
 
-            tipoMascota.productoId = id;
+            tipoMascota.tipoId = id;
             
             const requestInit = {
                
@@ -37,14 +37,14 @@ const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
         }
 
      
-         const [mascota, setMascotas] = useState([])
+         const [mascotas, setMascotas] = useState([])
 
  
     
       
         useEffect(() => {
           const getMascotas = () => {
-            fetch('http://localhost:18085/listTiposMascotas/')
+            fetch('http://localhost:18081/listMascotas')
             .then(res => res.json())
             .then(res => setMascotas(res))
           }
@@ -55,7 +55,7 @@ const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
         
 
     return(
-        <table className="table">
+        <table className="table" class="table table-bordered">
  
             <thead>
                 <tr>
@@ -68,37 +68,35 @@ const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
             <tbody>
                     {tipoMascotas.map( tipoMascota => (
                         <tr key={tipoMascota.tipoId}>
+                            <td>{tipoMascota.tipoId}</td>
                            <td>{tipoMascota.nombre}</td>
                            <td>{tipoMascota.descripcion}</td>
-                           {<td>{
-                            tipoMascota.map(e => (
+                           <td>{
+                            mascotas.map(e => (
 
                                 tipoMascota.tipoId === e.tipoId ? (
                                 
-                                <ol key={e.nombre}>
-                                    <li>{e.duenioId}</li>
-                                    <li>{e.tipoId}</li>
-                                    <li>{e.fechaIngreso}</li> 
-                                    <li>{e.motivoIngreso}</li> 
-                                  
+                                <ol key={e.mascotaId}>
+                                    <li>{e.nombre}</li>
+                                    <li>{e.mascotaId}</li>
                                 </ol>  
                                  )
                                 :(
-                            <td>Sin datos</td>
+                            <td></td>
                                 )
 
                              )
                              )
 
                            }
-                           </td>  }                          
+                           </td>                           
                            <td>
                                <div className="mb-3">
                                 <button onClick={() => handleDelete(tipoMascota.tipoId)} className="btn btn-danger">ELIMINAR</button>
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(tipoMascota.tipoId)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(tipoMascota.tipoId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

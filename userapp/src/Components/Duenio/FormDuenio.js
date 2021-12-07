@@ -25,12 +25,11 @@ const FormDuenio = ({duenio, setDuenio}) => {
             body: JSON.stringify(duenio)
         }
 
-        fetch('http://localhost:18086/duenio/add', requestInit)
+        fetch('http://localhost:18082/Duenio/agregar', requestInit)
         .then(res => res.text())
-        .then(res => console.log(requestInit.body))
+        .then(res => console.log(res))
 
         setDuenio({
-        
         nombre: '',
         telefono: 0,
         direccion: ''

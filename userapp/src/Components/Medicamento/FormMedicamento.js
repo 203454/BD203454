@@ -25,7 +25,7 @@ const FormMedicamento = ({medicamento, setMedicamento}) => {
             body: JSON.stringify(medicamento)
         }
 
-        fetch('http://localhost:18086/medicamento/add', requestInit)
+        fetch('http://localhost:18083/Medicamento/add', requestInit)
         .then(res => res.text())
         .then(res => console.log(requestInit.body))
 
@@ -34,12 +34,12 @@ const FormMedicamento = ({medicamento, setMedicamento}) => {
         nombre: '',
         fechaCaducidad: null,
         sustanciaActiva: '',
-        
+        tipoMedicamentoId:null
         })
 
     }
 
-    let{nombre,fechaCaducidad,sustanciaActiva} = medicamento
+    let{nombre,fechaCaducidad,sustanciaActiva,tipoMedicamentoId} = medicamento
 
 
     return(
@@ -51,13 +51,18 @@ const FormMedicamento = ({medicamento, setMedicamento}) => {
             </div>
 
             <div className="mb-3">
-                <label htmlFor="Fecha de Caducidad" className="form-label">fechaCaducidad</label>
-                <input value={fechaCaducidad || ''} name="Fecha de Caducidad" onChange={handleChange} type="number" id="Fecha de caducidad" className="form-control"/>
+                <label htmlFor="fechaCaducidad" className="form-label">fechaCaducidad</label>
+                <input value={fechaCaducidad || ''} name="fechaCaducidad" onChange={handleChange} type="text" id="fechaCaducidad" className="form-control"/>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="Fecha de Caducidad" className="form-label">Sustancia Activa</label>
-                <input value={sustanciaActiva || ''} name="Fecha de Caducidad" onChange={handleChange} type="text" id="Fecha de Caducidad" className="form-control"/>
+                <label htmlFor="sustanciaActiva" className="form-label">Sustancia Activa</label>
+                <input value={sustanciaActiva || ''} name="sustanciaActiva" onChange={handleChange} type="text" id="sustanciaActiva" className="form-control"/>
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="tipoMedicamentoId" className="form-label">Tipo</label>
+                <input value={tipoMedicamentoId || ''} name="tipoMedicamentoId" onChange={handleChange} type="number" id="tipoMedicamentoId" className="form-control"/>
             </div>
             
             <button type="submit" className="btn btn-primary">Agregar</button>

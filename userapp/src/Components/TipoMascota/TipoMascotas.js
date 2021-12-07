@@ -1,7 +1,7 @@
 
 import React, {Fragment, useState, useEffect} from 'react';
 import TipoMascotaList from './TipoMascotaList';
-import FormTipoMascotafrom from './FormTipoMascotafrom'
+import FormTipoMascota from './FormTipoMascota';
 
 
 function TipoMascotas(){
@@ -34,7 +34,7 @@ function TipoMascotas(){
       return (
        
        
-          <div className="container">
+          <div className="container" id="tipoMascotasApp">
               <Fragment> 
             <div className="row">
               <div className="col-7">
@@ -43,7 +43,7 @@ function TipoMascotas(){
               </div>
               <div className="col-5">
                 <h2 style={{textAlign: 'center'}}>Tipo Mascota form</h2>
-                <FormTipoMascotafrom  tipoMascota={tipoMascota} setTipoMascota={setTipoMascota}/>
+                <FormTipoMascota  tipoMascota={tipoMascota} setTipoMascota={setTipoMascota}/>
               </div>
     
             </div>

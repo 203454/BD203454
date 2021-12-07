@@ -55,7 +55,7 @@ const MascotaList = ({mascota, mascotas, setListUpdated}) =>{
         
 
     return(
-        <table className="table">
+        <table className="table" class="table table-bordered">
  
             <thead>
                 <tr>
@@ -70,6 +70,7 @@ const MascotaList = ({mascota, mascotas, setListUpdated}) =>{
             <tbody>
                     {mascotas.map( mascota => (
                         <tr key={mascota.mascotaId}>
+                            <td>{mascota.mascotaId}</td>
                            <td>{mascota.nombre}</td>
                            <td>{mascota.duenioId}</td>
                            <td>{mascota.tipoId}</td>
@@ -103,7 +104,7 @@ const MascotaList = ({mascota, mascotas, setListUpdated}) =>{
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(mascota.mascotaId)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(mascota.mascotaId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

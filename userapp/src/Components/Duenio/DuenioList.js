@@ -4,20 +4,20 @@ import FormDuenio from './FormDuenio';
 
 const DuenioList = ({duenio, duenios, setListUpdated}) =>{
 
-    const handleDelete= id_duenio =>{
+    const handleDelete = duenioId =>{
         const requestInit = {
             method: 'POST', 
         }
-        fetch('http://localhost:18086/duenio/delete/' + id_duenio, requestInit)
+        fetch('http://localhost:18082/Duenio/delete/' + duenioId, requestInit)
         .then(res => res.text())
-        .then(res => console.log(res + id_duenio))
+        .then(res => console.log(res + duenioId))
 
         setListUpdated(true)
         }
 
         const handleUpdate = id =>{
 
-            duenio.id_duenio = id;
+            duenio.duenioId = id;
             
             const requestInit = {
                
@@ -29,7 +29,7 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
                 body: JSON.stringify(duenio)
             }
             console.log("DUENIO: " + requestInit.body)
-            fetch('http://localhost:18086/duenio/update/' + id, requestInit)
+            fetch('http://localhost:18082/Duenio/update/' + id, requestInit)
             .then(res => res.text())
             .then(res => console.log("FETCH: " + res))
     
@@ -37,14 +37,14 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
         }
 
      
-        const [mascota, setMascotas] = useState([])
+        const [mascotas, setMascotas] = useState([])
 
  
       
       
         useEffect(() => {
             const getMascotas = () => {
-              fetch('http://localhost:18086/listMascotas')
+              fetch('http://localhost:18081/listMascotas')
               .then(res => res.json())
               .then(res => setMascotas(res))
             }
@@ -55,7 +55,7 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
         
 
     return(
-        <table className="table">
+        <table className="table" class="table table-bordered">
  
             <thead>
                 <tr>
@@ -68,8 +68,8 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
             </thead>
             <tbody>
                     {duenios.map( duenio => (
-                        <tr key={duenio.id_duenio}>
-                           <td>{duenio.id_duenio}</td>
+                        <tr key={duenio.duenioId}>
+                           <td>{duenio.duenioId}</td>
                            <td>{duenio.nombre}</td>
                            <td>{duenio.telefono}</td>
                            <td>{duenio.direccion}</td>
@@ -78,20 +78,20 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
                            
                         //    producto.tipoId === duenio.id_duenio ? (
 
-                            mascota.map(e =>(
+                            mascotas.map(e =>(
 
-                                duenio.id_duenio === e.id_duenio ? (
+                                duenio.duenioId === e.duenioId ? (
                                 
-                                <ol key={e.id_duenio}>
-                                    <li>{e.id_duenio}</li>
+                                <ol key={e.duenioId}>
+                                    <li>{e.duenioId}</li>
                                     <li>{e.idmascota}</li>
                                     <li>{e.nombre}</li>
-                                    <li>{e.tipo}</li> 
+                                    <li>{e.tipoId}</li> 
                                     {/* <li>{console.log("Producto id: " + producto.tipoId +" ---- Duenio nombre:"+  e.nombre)}</li> */}
                                 </ol>  
                                  )
                                 :(
-                            <td>Sin datos</td>
+                            <td></td>
                                 )
 
                              )
@@ -101,11 +101,11 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
                            </td>                           
                            <td>
                                <div className="mb-3">
-                                <button onClick={() => handleDelete(duenio.id_duenio)} className="btn btn-danger">ELIMINAR</button>
+                                <button onClick={() => handleDelete(duenio.duenioId)} className="btn btn-danger">ELIMINAR</button>
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(duenio.id_duenio)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(duenio.duenioId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

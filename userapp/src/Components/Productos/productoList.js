@@ -103,7 +103,7 @@ const ProductoList = ({producto, productos, setListUpdated}) =>{
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(producto.productoId)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(producto.productoId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

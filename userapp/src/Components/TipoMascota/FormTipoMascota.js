@@ -41,7 +41,7 @@ const FormTipoMascota = ({tipoMascota, setTipoMascota}) => {
 
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
 
             <div className="mb-3">
                 <label htmlFor="nombre" className="form-label">NOMBRE</label>
@@ -53,9 +53,7 @@ const FormTipoMascota = ({tipoMascota, setTipoMascota}) => {
                 <input value={descripcion || ''} name="descripcion" onChange={handleChange} type="text" id="descripcion" className="form-control"/>
             </div>
             
-            <button type="submit" className="btn btn-primary">Agregar</button>
-
-   
+            <button type="submit" className="btn btn-primary">Agregar</button>   
             
         </form>
     )

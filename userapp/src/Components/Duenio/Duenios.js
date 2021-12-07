@@ -10,7 +10,7 @@ function Duenios(){
 
 
     const [duenio, setDuenio] = useState({
-        id_duenio:null,
+        duenioId:null,
         nombre: '',
         telefono: null,
         direccion: null,
@@ -21,7 +21,7 @@ function Duenios(){
 
       useEffect(() => {
         const getDuenios = () => {
-          fetch('http://localhost:18086/listDuenios')
+          fetch('http://localhost:18082/listDuenios')
           .then(res => res.json())
           .then(res => setDuenios(res))
         }
@@ -35,15 +35,15 @@ function Duenios(){
       return (
        
        
-          <div className="container">
+          <div className="container" id="dueniosApp">
               <Fragment> 
             <div className="row">
               <div className="col-5">
-                <h2 style={{textAlign: 'center'}}>duenio list</h2>
+                <h2 style={{textAlign: 'center'}}>DUENO LIST</h2>
                 <DuenioList duenio={duenio} duenios={duenios} setListUpdated={setListUpdated} />
               </div>
               <div className="col-5">
-                <h2 style={{textAlign: 'center'}}>duenio form</h2>
+                <h2 style={{textAlign: 'center'}}>FORMULARIO</h2>
                 <FormDuenio  duenio={duenio} setDuenio={setDuenio}/>
               </div>
     

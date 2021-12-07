@@ -1,17 +1,17 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import TMList from './TMList';
-import FormTipoMedicamento from './FormTipoMedicamento'
+import FormTipoMedicamento from './FormTipoMedicamento';
 
 
-function Productos(){
+function TipoMedicamentos(){
 
     const [datoEditar, setDatoEditar]=useState(null);
 
 
     const [tipoMedicamento, setTipoMedicamento] = useState({
-        tipoMedicamentoId: null,
+        tipoMedicamentoId:null,
         nombre: '',
-        descripcion: ''
+        descripcion:''
       })
 
       const [listUpdated, setListUpdated] = useState(false)
@@ -19,7 +19,7 @@ function Productos(){
 
       useEffect(() => {
         const getTipoMedicamentos = () => {
-          fetch('http://localhost:')
+          fetch('http://localhost:18084/listTiposMedicamentos')
           .then(res => res.json())
           .then(res => setTipoMedicamentos(res))
         }
@@ -33,15 +33,17 @@ function Productos(){
       return (
        
        
-          <div className="container">
+          <div className="container" id="tipoMedicamentosApp">
               <Fragment> 
             <div className="row">
+
               <div className="col-7">
-                <h2 style={{textAlign: 'center'}}>TIPO MEDICAMENTO LIST</h2>
-                <TMList  tipoMedicamento={tipoMedicamento} tipoMedicamentos={tipoMedicamentos} setListUpdated={setListUpdated} />
+                <h2 style={{textAlign: 'center'}}>Tipo Medicamento List</h2>
+                <TMList tipoMedicamento={tipoMedicamento} tipoMedicamentos={tipoMedicamentos} setListUpdated={setListUpdated} />
               </div>
+
               <div className="col-5">
-                <h2 style={{textAlign: 'center'}}>TIPO MEDICAMENTO FORM</h2>
+                <h2 style={{textAlign: 'center'}}>Tipo Medicamento form</h2>
                 <FormTipoMedicamento  tipoMedicamento={tipoMedicamento} setTipoMedicamento={setTipoMedicamento}/>
               </div>
     
@@ -53,4 +55,4 @@ function Productos(){
     
 }
 
-export default Productos;
+export default TipoMedicamentos;

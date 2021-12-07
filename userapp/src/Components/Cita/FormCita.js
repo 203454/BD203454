@@ -25,7 +25,7 @@ const FormCita = ({cita, setCita}) => {
             body: JSON.stringify(cita)
         }
 
-        fetch('http://localhost:18086/', requestInit)
+        fetch('http://localhost:18086/cita/add', requestInit)
         .then(res => res.text())
         .then(res => console.log(requestInit.body))
 
@@ -33,13 +33,13 @@ const FormCita = ({cita, setCita}) => {
 
         hora: '',
         fecha: '',
-        tipoServicio: null
-        
+        tipoServicio: null,
+        idMascota:null
         })
 
     }
 
-    let{hora,fecha,tipoServicio} = cita;
+    let{hora,fecha,tipoServicio,idMascota} = cita;
 
 
     return(
@@ -52,12 +52,17 @@ const FormCita = ({cita, setCita}) => {
 
             <div className="mb-3">
                 <label htmlFor="fecha" className="form-label">FECHA</label>
-                <input value={fecha || ''} name="fecha" onChange={handleChange} type="number" id="fecha" className="form-control"/>
+                <input value={fecha || ''} name="fecha" onChange={handleChange} type="text" id="fecha" className="form-control"/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="tipoServicio" className="form-label">TIPO SERVICIO</label>
                 <input value={tipoServicio || ''} name="tipoServicio" onChange={handleChange} type="number" id="tipoServicio" className="form-control"/>
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="idMascota" className="form-label">ID MASCOTA</label>
+                <input value={idMascota || ''} name="idMascota" onChange={handleChange} type="number" id="idMascota" className="form-control"/>
             </div>
             
             <button type="submit" className="btn btn-primary">Agregar</button>

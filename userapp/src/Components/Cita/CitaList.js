@@ -4,11 +4,11 @@ import FormCita from './FormCita';
 
 const CitaList = ({cita, citas, setListUpdated}) =>{
 
-    const handleDelete= idCita =>{
+    const handleDelete = idCita =>{
         const requestInit = {
             method: 'POST', 
         }
-        fetch('http://localhost:18086/' + idCita, requestInit)
+        fetch('http://localhost:18086/cita/delete/' + idCita, requestInit)
         .then(res => res.text())
         .then(res => console.log(res + idCita))
 
@@ -17,7 +17,7 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
 
         const handleUpdate = id =>{
 
-            cita.productoId = id;
+            cita.idCita = id;
             
             const requestInit = {
                
@@ -29,7 +29,7 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
                 body: JSON.stringify(cita)
             }
             console.log("PRODUCTO: " + requestInit.body)
-            fetch('http://localhost:18086/' + id, requestInit)
+            fetch('http://localhost:18086/cita/update/' + id, requestInit)
             .then(res => res.text())
             .then(res => console.log("FETCH: " + res))
     
@@ -37,14 +37,11 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
         }
 
      
-        const [mascota, setMascotas] = useState([])
+        const [mascotas, setMascotas] = useState([])
 
- 
-      
-      
         useEffect(() => {
           const getMascotas = () => {
-            fetch('http://localhost:18086/')
+            fetch('http://localhost:18081/listMascotas')
             .then(res => res.json())
             .then(res => setMascotas(res))
           }
@@ -55,29 +52,29 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
         
 
     return(
-        <table className="table">
+        <table class="table table-bordered">
  
             <thead>
                 <tr>
-                    <th>CITA ID</th>
-                    <th>HORA</th>
-                    <th>FECHA</th>
-                    <th>TIPO SERVICIO</th>
-                    <th>MASCOTAS</th>
+                    <th cope="col">CITA ID</th>
+                    <th cope="col">HORA</th>
+                    <th cope="col">FECHA</th>
+                    <th cope="col">TIPO SERVICIO</th>
+                    <th cope="col">MASCOTAS</th>
                 </tr>
             </thead>
             <tbody>
                     {citas.map( cita => (
-                        <tr key={cita.idcita}>
+                        <tr cope="row" key={cita.idCita}>
+                            <td>{cita.idCita}</td>
                            <td>{cita.hora}</td>
                            <td>{cita.fecha}</td>
-                           <td>{cita.tiposervicio}</td>
-                           <td>{cita.idCita}</td>
+                           <td cope="row"> {cita.tipoServicio}</td>
                            <td>{
-                        //    producto.tipoId === duenio.id_duenio ? (
-                            mascota.map(e =>(
+                         //    producto.tipoId === duenio.id_duenio ? (
+                            mascotas.map(e =>(
 
-                                cita.idCita === e.mascotaId ? (
+                                cita.idMascota === e.mascotaId ? (
                                 
                                 <ol key={e.mascotaId}>
                                     <li>{e.mascotaId}</li>
@@ -91,7 +88,7 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
                                 </ol>  
                                  )
                                 :(
-                            <td>Sin datos</td>
+                            <td></td>
                                 )
 
                              )
@@ -101,11 +98,11 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
                            </td>                           
                            <td>
                                <div className="mb-3">
-                                <button onClick={() => handleDelete(cita.idcita)} className="btn btn-danger">ELIMINAR</button>
+                                <button onClick={() => handleDelete(cita.idCita)} className="btn btn-danger">ELIMINAR</button>
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(cita.idcita)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(cita.idCita)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

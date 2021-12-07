@@ -1,0 +1,13 @@
+.navbar2{
+    position: -webkit-sticky;
+    position: sticky;
+    top:50px;
+    z-index:1030
+}
+
+header {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}

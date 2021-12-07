@@ -8,7 +8,7 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
         const requestInit = {
             method: 'POST', 
         }
-        fetch('http://localhost:8021/Producto/delete/' + tipoMedicamentoId, requestInit)
+        fetch('http://localhost:18084/TipoMedicamento/delete/' + tipoMedicamentoId, requestInit)
         .then(res => res.text())
         .then(res => console.log(res + tipoMedicamentoId))
 
@@ -29,7 +29,7 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
                 body: JSON.stringify(tipoMedicamento)
             }
             console.log("PRODUCTO: " + requestInit.body)
-            fetch('link dde la api' + id, requestInit)
+            fetch('http://localhost:18084/TipoMedicamento/update/' + id, requestInit)
             .then(res => res.text())
             .then(res => console.log("FETCH: " + res))
     
@@ -37,22 +37,22 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
         }
 
      
-        const [medicamento, setMedicamento] = useState([])
+        const [medicamentos, setMedicamentos] = useState([])
 
         useEffect(() => {
-          const getDuenios = () => {
-            fetch('http://localhost:8085/listDuenios')
+          const getMedicamentos = () => {
+            fetch('http://localhost:18083/listMedicamentos')
             .then(res => res.json())
-            .then(res => setMedicamento(res))
+            .then(res => setMedicamentos(res))
           }
-          getDuenios();
+          getMedicamentos();
           setListUpdated(false)
         },[])
         
         
 
     return(
-        <table className="table">
+        <table className="table" class="table table-bordered">
  
             <thead>
                 <tr>
@@ -65,6 +65,7 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
             <tbody>
                     {tipoMedicamentos.map( tipoMedicamento => (
                         <tr key={tipoMedicamento.tipoMedicamentoId}>
+                            <td>{tipoMedicamento.tipoMedicamentoId}</td>
                            <td>{tipoMedicamento.nombre}</td>
                            <td>{tipoMedicamento.descripcion}</td>
                            <td>{
@@ -72,19 +73,19 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
                            
                         //    producto.tipoId === duenio.id_duenio ? (
 
-                            medicamento.map(e =>(
+                            medicamentos.map(e =>(
 
-                                medicamento.id_medicamento === e.tipoMedicamentoId ? (
+                                tipoMedicamento.tipoMedicamentoId === e.tipoMedicamentoId ? (
                                 
-                                <ol key={e.tipoMedicamentoId}>
-                                    <li>{e.tipoMedicamentoId}</li>
+                                <ol key={e.medicamentoId}>
+                                    <li>{e.medicamentoId}</li>
                                     <li>{e.nombre}</li>
                                     <li>{e.descripcion}</li> 
                                     {/* <li>{console.log("Producto id: " + producto.tipoId +" ---- Duenio nombre:"+  e.nombre)}</li> */}
                                 </ol>  
                                  )
                                 :(
-                            <td>Sin datos</td>
+                            <td></td>
                                 )
 
                              )
@@ -99,7 +100,7 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
                                </div>
 
                                <div className="mb-3">   
-                                <button onClick={() => handleUpdate(tipoMedicamento.tipoMedicamentoId)} className="btn btn-dark">EDITAR</button>
+                                <button onClick={() => handleUpdate(tipoMedicamento.tipoMedicamentoId)} className="btn btn-warning">EDITAR</button>
                                </div>
                            </td>
                            

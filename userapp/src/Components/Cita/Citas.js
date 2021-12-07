@@ -23,7 +23,7 @@ function Citas(){
 
       useEffect(() => {
         const getCitas = () => {
-          fetch('http://localhost:18086/')
+          fetch('http://localhost:18086/listCitas')
           .then(res => res.json())
           .then(res => setCitas(res))
         }
@@ -37,7 +37,7 @@ function Citas(){
       return (
        
        
-          <div className="container">
+          <div className="container" id="citasApp">
               <Fragment> 
             <div className="row">
               <div className="col-7">
@@ -45,7 +45,7 @@ function Citas(){
                 <CitaList  cita={cita} citas={citas} setListUpdated={setListUpdated} />
               </div>
               <div className="col-5">
-                <h2 style={{textAlign: 'center'}}>CITA form</h2>
+                <h2 style={{textAlign: 'center'}}>FORMULARIO</h2>
                 <FormCita  cita={cita} setCita={setCita}/>
               </div>
     

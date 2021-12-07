@@ -37,7 +37,7 @@ function Mascotas(){
       return (
        
        
-          <div className="container">
+          <div className="container" id="mascotasApp">
               <Fragment> 
             <div className="row">
               <div className="col-7">
