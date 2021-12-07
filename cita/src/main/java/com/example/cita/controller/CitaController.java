@@ -55,7 +55,7 @@ public class CitaController {
     }
 
     //Eliminar
-    @PostMapping(value = "/cita/delete/{productoId}")
+    @PostMapping(value = "/cita/delete/{citaId}")
     public boolean deleteProducto(@PathVariable int citaId) {
         Cita c = citaRepository.findByIdCita(citaId);
         if (c != null) {
