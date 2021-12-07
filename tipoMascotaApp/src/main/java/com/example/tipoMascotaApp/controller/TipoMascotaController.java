@@ -55,7 +55,7 @@ public class TipoMascotaController {
         TipoMascota t = tipoMascotaRepository.findByTipoId(tipoId);
 
         if(t != null){
-            tipoMascotaRepository.save(t);
+            tipoMascotaRepository.delete(t);
             return true;
         }else{
             return false;
