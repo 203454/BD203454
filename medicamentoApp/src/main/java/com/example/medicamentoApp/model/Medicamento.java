@@ -1,13 +1,12 @@
 package com.example.medicamentoApp.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Medicamento {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int medicamentoId;
 
     @Column(name = "nombre")
