@@ -76,16 +76,16 @@ const CitaList = ({cita, citas, setListUpdated}) =>{
 
                                 cita.idMascota === e.mascotaId ? (
                                 
-                                <ol key={e.mascotaId}>
+                                <ul key={e.mascotaId}>
                                     <li>{e.mascotaId}</li>
                                     <li>{e.nombre}</li>
-                                    <li>{e.duenioId}</li>
+                                    {/* <li>{e.duenioId}</li>
                                     <li>{e.tipoId}</li>
                                     <li>{e.fechaIngreso}</li>
-                                    <li>{e.motivoIngreso}</li>
+                                    <li>{e.motivoIngreso}</li> */}
                          
                                     {/* <li>{console.log("Producto id: " + producto.tipoId +" ---- Duenio nombre:"+  e.nombre)}</li> */}
-                                </ol>  
+                                </ul>  
                                  )
                                 :(
                             <td></td>

@@ -77,12 +77,12 @@ const TMList = ({tipoMedicamento, tipoMedicamentos, setListUpdated}) =>{
 
                                 tipoMedicamento.tipoMedicamentoId === e.tipoMedicamentoId ? (
                                 
-                                <ol key={e.medicamentoId}>
-                                    <li>{e.medicamentoId}</li>
+                                <ul key={e.medicamentoId}>
+                                    {/* <li>{e.medicamentoId}</li> */}
                                     <li>{e.nombre}</li>
-                                    <li>{e.descripcion}</li> 
+                                    {/* <li>{e.descripcion}</li>  */}
                                     {/* <li>{console.log("Producto id: " + producto.tipoId +" ---- Duenio nombre:"+  e.nombre)}</li> */}
-                                </ol>  
+                                </ul>  
                                  )
                                 :(
                             <td></td>

@@ -82,13 +82,13 @@ const DuenioList = ({duenio, duenios, setListUpdated}) =>{
 
                                 duenio.duenioId === e.duenioId ? (
                                 
-                                <ol key={e.duenioId}>
-                                    <li>{e.duenioId}</li>
-                                    <li>{e.idmascota}</li>
+                                <ul key={e.duenioId}>
+                                    {/* <li>{e.duenioId}</li>
+                                    <li>{e.idmascota}</li> */}
                                     <li>{e.nombre}</li>
-                                    <li>{e.tipoId}</li> 
+                                    {/* <li>{e.tipoId}</li>  */}
                                     {/* <li>{console.log("Producto id: " + producto.tipoId +" ---- Duenio nombre:"+  e.nombre)}</li> */}
-                                </ol>  
+                                </ul>  
                                  )
                                 :(
                             <td></td>

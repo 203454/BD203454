@@ -83,11 +83,11 @@ const MedicamentosList = ({medicamento, medicamentos, setListUpdated}) =>{
 
                                 medicamento.tipoMedicamentoId === e.tipoMedicamentoId ? (
                                 
-                                <ol key={e.tipoMedicamentoId}>
-                                    <li>{e.tipoMedicamentoId}</li>
+                                <ul key={e.tipoMedicamentoId}>
+                                    {/* <li>{e.tipoMedicamentoId}</li> */}
                                     <li>{e.nombre}</li>
-                                    <li>{e.descripcion}</li>
-                                </ol>  
+                                    {/* <li>{e.descripcion}</li> */}
+                                </ul>  
                                  )
                                 :(
                             <td></td>

@@ -76,10 +76,10 @@ const TipoMascotaList = ({tipoMascota, tipoMascotas, setListUpdated}) =>{
 
                                 tipoMascota.tipoId === e.tipoId ? (
                                 
-                                <ol key={e.mascotaId}>
-                                    <li>{e.nombre}</li>
+                                <ul key={e.mascotaId}>
                                     <li>{e.mascotaId}</li>
-                                </ol>  
+                                    <li>{e.nombre}</li>
+                                </ul>  
                                  )
                                 :(
                             <td></td>
